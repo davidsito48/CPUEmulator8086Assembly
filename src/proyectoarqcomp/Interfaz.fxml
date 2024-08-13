@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="900.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectoarqcomp.InterfazController">
+   <children>
+      <MenuBar VBox.vgrow="NEVER">
+         <menus>
+            <Menu mnemonicParsing="false" text="Emulador">
+               <items>
+                  <MenuItem fx:id="menuCerrarPrograma" mnemonicParsing="false" onAction="#cerrarPrograma" text="Cerrar" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Programa">
+               <items>
+                  <MenuItem fx:id="menuCargarPrograma" mnemonicParsing="false" onAction="#cargarPrograma" text="Cargar programa" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Acerca De">
+               <items>
+                  <MenuItem fx:id="menuInformacion" mnemonicParsing="false" onAction="#desplegarInfoPrograma" text="Informacion" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="426.0" prefWidth="740.0" VBox.vgrow="ALWAYS">
+         <children>
+            <TableView fx:id="vistaTabla" layoutX="458.0" layoutY="29.0" prefHeight="830.0" prefWidth="218.0">
+              <columns>
+                <TableColumn fx:id="columnaDireccion" prefWidth="109.0" text="Direccion" />
+                <TableColumn fx:id="columnaInstruccion" prefWidth="108.0" text="Instruccion" />
+              </columns>
+            </TableView>
+            <TextField fx:id="registroPC" editable="false" layoutX="714.0" layoutY="39.0" prefHeight="31.0" prefWidth="149.0" promptText="000" />
+            <Label layoutX="687.0" layoutY="37.0" text="PC">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroAR" editable="false" layoutX="714.0" layoutY="78.0" prefHeight="31.0" prefWidth="149.0" promptText="000" />
+            <Label layoutX="686.0" layoutY="76.0" text="AR">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroDR" editable="false" layoutX="714.0" layoutY="119.0" prefHeight="31.0" prefWidth="149.0" promptText="0000" />
+            <Label layoutX="685.0" layoutY="117.0" text="DR">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroTR" editable="false" layoutX="714.0" layoutY="162.0" prefHeight="31.0" prefWidth="149.0" promptText="0000" />
+            <Label layoutX="686.0" layoutY="160.0" text="TR">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroAC" editable="false" layoutX="714.0" layoutY="204.0" prefHeight="31.0" prefWidth="149.0" promptText="0000" />
+            <Label layoutX="685.0" layoutY="202.0" text="AC">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroIR" editable="false" layoutX="714.0" layoutY="244.0" prefHeight="31.0" prefWidth="149.0" promptText="0000" />
+            <Label layoutX="688.0" layoutY="242.0" text="IR">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroI" editable="false" layoutX="820.0" layoutY="285.0" prefHeight="25.0" prefWidth="41.0" promptText="0" />
+            <Label layoutX="800.0" layoutY="288.0" text="I">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroE" editable="false" layoutX="820.0" layoutY="327.0" prefHeight="25.0" prefWidth="41.0" promptText="0" />
+            <Label layoutX="798.0" layoutY="330.0" text="E">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroINPR" layoutX="745.0" layoutY="419.0" onKeyReleased="#fakeStep" prefHeight="31.0" prefWidth="115.0" promptText="00" />
+            <Label layoutX="689.0" layoutY="425.0" text="INPR">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroOUTR" editable="false" layoutX="746.0" layoutY="373.0" prefHeight="31.0" prefWidth="115.0" promptText="00" />
+            <Label layoutX="686.0" layoutY="379.0" text="OUTR">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroSALIDA" editable="false" layoutX="693.0" layoutY="587.0" prefHeight="25.0" prefWidth="149.0" promptText="null" />
+            <Label layoutX="743.0" layoutY="553.0" text="Salida">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="registroINSTRICCION" editable="false" layoutX="697.0" layoutY="510.0" prefHeight="25.0" prefWidth="149.0" promptText="null" />
+            <Label layoutX="720.0" layoutY="479.0" text="Instruccion">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="botonStep" disable="true" layoutX="736.0" layoutY="716.0" mnemonicParsing="false" onAction="#avanzarPaso" text="Avanzar" />
+            <Label fx:id="etiquetaTerminar" layoutX="680.0" layoutY="632.0" prefHeight="25.0" prefWidth="181.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="535.0" layoutY="2.0" text="Memoria">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="475.0" fitWidth="425.0" layoutX="14.0" layoutY="14.0">
+               <image>
+                  <Image url="@recs/DETERMINE+THE+TYPE+OF+INSTRUCTION.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="370.0" fitWidth="425.0" layoutX="14.0" layoutY="489.0">
+               <image>
+                  <Image url="@recs/cover-180323070337.jpg" />
+               </image>
+            </ImageView>
+            <SVGPath fx:id="flechaIndicador" content="M 35 0 L 25 -15 L 25 -5 L 0 -5 L 0 5 L 25 5 L 25 15 Z" fill="RED" layoutX="246.0" layoutY="37.0" nodeOrientation="RIGHT_TO_LEFT" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
